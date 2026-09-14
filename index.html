@@ -13,7 +13,7 @@
     <h1>SWIM TRACKER</h1>
     <p class="slogan">Swim. Track. Improve.</p>
     <button id="darkLightBtn" class="dark-light"><i class="fa-solid fa-sun"></i></button>
-    <nav class="nav active">
+    <nav class="nav">
       <button id="train" class="big-btn">新增訓練紀錄</button>
       <button id="bestScore" class="big-btn">查看最佳紀錄</button>
       <button id="week" class="big-btn">查看一周紀錄</button>
@@ -21,14 +21,18 @@
       <button id="menu" class="big-btn">客製化菜單</button>
     </nav>
   </header>
+
   <main>
-    <section id="train" class="page">
+    <section id="trainPage" class="page">
+      <button type="button" class="back-btn">回首頁</button>
       <form class="swimForm">
         <div class="form-group">
-          <label for="date">訓練日期: </label>
-          <input type="date" id="date" required>
-
-          <fieldset class="form-group">
+          <div>
+            <label for="date">訓練日期: </label>
+            <input type="date" id="date" class="trainInput" required>
+          </div>
+        
+          <fieldset class="style">
             <legend>距離(m): </legend>
             <label>蝶式: <input type="number" id="butterfly" class="trainInput"></label>
             <label>仰式: <input type="number" id="backstroke" class="trainInput"></label>
@@ -36,39 +40,42 @@
             <label>自由式: <input type="number" id="freestyle" class="trainInput"></label>
           </fieldset>
 
-          <div class="form-group">
+          <div class="totalDis">
             <span id="totalDis">0</span>公尺
           </div>
 
-          <div class="form-group">
+          <div class="duration">
             <label> 花費時間: </label>
-            <input type="number" id="duraitonM" placeholder="分">
-            <input type="number" id="duraitonS" placeholder="秒">
+            <input type="number" id="duraitonM" class="trainInput" placeholder="分" required>
+            <input type="number" id="duraitonS" class="trainInput" placeholder="秒" required>
           </div>
 
-          <div class="form-group">
+          <div class="note">
             <label for="notes">備註: </label>
-            <textarea id="notes" placeholder="在這裡輸入..."></textarea> 
+            <textarea id="notes" class="trainInput" placeholder="在這裡輸入..."></textarea> 
           </div>
+          <button type="button" id="submit" class="submit-btn">紀錄</button>
         </div>
       </form>
     </section>
 
 
-    <section id= "bestScore" class="page">
+    <section id= "bestScorePage" class="page">
 
     </section>
 
 
-     <section id= "week" class="page">
+     <section id= "weekPage" class="page">
 
     </section>
 
-     <section id= "calander" class="page">
+
+     <section id= "calanderPage" class="page">
 
     </section>
 
-     <section id= "menu" class="page">
+
+     <section id= "menuPage" class="page">
 
     </section>
 
