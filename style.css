@@ -132,6 +132,10 @@ label {
 
 }
 
+.disText {
+    color: var(--accent);
+}
+
 .trainInput {
     width: 100%;
     padding: 14px;
@@ -183,4 +187,44 @@ input:focus, textarea:focus {
 .back-btn:hover {
     background-color: var(--accent);
     color: var(--bg);
+}
+
+.success-msg {
+    margin-top: 24px;
+    margin-left: 70px;
+    padding: 16px;
+    background-color: rgba(222, 197, 74, 0.2);
+    border: 2px solid var(--accent);
+    border-radius: 12px;
+    text-align: center;
+    color: var(--accent);
+}
+
+.success-msg p {
+    margin-bottom: 12px;
+    font-size: 18px;
+}
+
+.success-acts {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+
+}
+
+.form-go-btn {
+    background-color: #ebc14ce6;
+    color: var(--bg);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.1s ease, opacity 0.2s;
+}
+
+.form-go-btn:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
 }
