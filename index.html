@@ -61,29 +61,70 @@
       <div id="successMsg" class="success-msg" style="display: none;">
         <p>紀錄成功! 點擊下方按鈕查看</p>
         <div class="success-acts">
-          <button id="goWeek" class="form-go-btn">前往一周紀錄</button>
-          <button id="goCalandar" class="form-go-btn">前往行事曆</button>
+          <button id="goWeek" class="form-go-btn" data-target="week">前往一周紀錄</button>
+          <button id="goCalandar" class="form-go-btn" data-target="calandar">前往行事曆</button>
         </div>
       </div>
     </section>
 
 
-    <section id= "bestScorePage" class="page">
+    <section id="bestScorePage" class="page">
+      <button type="button" class="back-btn">回首頁</button>
+      
+      <div id="best" class="best">
+        <h1>歷史之最</h1>
+        
+        <div class="bestRecord">
+          <div class="record-card">
+            <h2>50公尺最快: </h2>
+            <p class="record-time" id="best50Time">--分--秒</p>
+            <p class="date">達成日期：<span id="best50Date">尚未有紀錄</span></p>
+          </div>
 
+          <div class="record-card">
+            <h2>100公尺最快: </h2>
+            <p class="record-time" id="best100Time">--分--秒</p>
+            <p class="date">達成日期：<span id="best100Date">尚未有紀錄</span></p>
+          </div>
+
+          <div class="record-card">
+            <h2>200公尺最快: </h2>
+            <p class="record-time" id="best200Time">--分--秒</p>
+            <p class="date">達成日期：<span id="best200Date">尚未有紀錄</span></p>
+          </div>
+
+          <div class="record-card highlight">
+            <h2>最遠游泳距離: </h2>
+            <p class="record-dis" id="bestDis">0 公尺</p>
+            <p class="date">達成日期：<span id="bestDisDate">尚未有紀錄</span></p>
+          </div>
+        </div>
+      </div>
     </section>
 
 
-     <section id= "weekPage" class="page">
-
+    <section id="weekPage" class="page">
+      <button type="button" class="back-btn">回首頁</button>
+            
+        <div class="week-container">
+          <h1>近七日訓練紀錄</h1>
+              <!-- js -->
+          <div id="weekRecordsList" class="week-records-list">
+              <!-- js -->
+          </div>
+        </div>
     </section>
 
 
      <section id= "calanderPage" class="page">
+      <button type="button" class="back-btn">回首頁</button>
+
 
     </section>
 
 
      <section id= "menuPage" class="page">
+      <button type="button" class="back-btn">回首頁</button>
 
     </section>
 
@@ -97,5 +138,7 @@
 
 
   <script src="training.js"></script>
+  <script src="best.js"></script>
+  <script src="week.js"></script>
 </body>
 </html>

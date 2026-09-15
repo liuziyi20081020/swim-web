@@ -108,10 +108,13 @@ document.addEventListener("DOMContentLoaded", function () {
         totalDis.textContent = 0;
       }
 
-        const formGoBtn = document.querySelectorAll(".form-go-btn");
-  formGoBtn.forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      const targetId = this.getAttribute("data-target");
+      updateBestRecords();
+      updateWeekRecords();
+
+    const formGoBtn = document.querySelectorAll(".form-go-btn");
+    formGoBtn.forEach(function (btn) {
+        btn.addEventListener("click", function () {
+        const targetId = this.getAttribute("data-target");
 
 
       if (successMsg) {
