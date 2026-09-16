@@ -12,13 +12,11 @@
   <header>
     <h1>SWIM TRACKER</h1>
     <p class="slogan">Swim. Track. Improve.</p>
-    <button id="darkLightBtn" class="dark-light"><i class="fa-solid fa-sun"></i></button>
     <nav class="nav">
       <button id="train" class="big-btn">新增訓練紀錄</button>
       <button id="bestScore" class="big-btn">查看最佳紀錄</button>
       <button id="week" class="big-btn">查看一周紀錄</button>
       <button id="calander" class="big-btn">查看行事曆</button>
-      <button id="menu" class="big-btn">客製化菜單</button>
     </nav>
   </header>
 
@@ -34,11 +32,18 @@
         
           <fieldset class="style">
             <legend>距離(m): </legend>
-            <label>蝶式: <input type="number" id="butterfly" class="trainInput"></label>
-            <label>仰式: <input type="number" id="backstroke" class="trainInput"></label>
-            <label>蛙式: <input type="number" id="breaststroke" class="trainInput"></label>
-            <label>自由式: <input type="number" id="freestyle" class="trainInput"></label>
+            <label>蝶式: <input type="number" id="butterfly" class="trainInput" list="dis-option"></label>
+            <label>仰式: <input type="number" id="backstroke" class="trainInput" list="dis-option"></label>
+            <label>蛙式: <input type="number" id="breaststroke" class="trainInput" list="dis-option"></label>
+            <label>自由式: <input type="number" id="freestyle" class="trainInput" list="dis-option"></label>
           </fieldset>
+
+          <datalist id="dis-option">
+            <option value="50"></option>
+            <option value="100"></option>
+            <option value="200"></option>
+
+          </datalist>
 
           <div class="totalDis">
             <span class="disText"><span id="totalDis">0</span>公尺</span>
@@ -119,14 +124,37 @@
      <section id= "calanderPage" class="page">
       <button type="button" class="back-btn">回首頁</button>
 
+      <div class="calendar-container">
+        <div class="calendar-header">
+          <button id="prevMonthBtn" type="button">&lt;</button>
+          <h2 id="calendarMonthYear">2026 年 9 月</h2>
+          <button id="nextMonthBtn" type="button">&gt;</button>
+        </div>
+
+        <div class="calendar-weekdays">
+          <div>日</div>
+          <div>一</div>
+          <div>二</div>
+          <div>三</div>
+          <div>四</div>
+          <div>五</div>
+          <div>六</div>
+        </div>
+
+        <div id="calendarDays" class="calendar-days"></div>
+      </div>
+
+      <div id="dayDetailModal" class="modal" style="display: none;">
+        <div class="modal-content">
+          <span id="closeModal" class="close-btn">&times;</span>
+          <h3 id="modalDate">訓練紀錄</h3>
+          <div id="modalBody"></div>
+        </div>
+      </div>
 
     </section>
 
 
-     <section id= "menuPage" class="page">
-      <button type="button" class="back-btn">回首頁</button>
-
-    </section>
 
 
 
@@ -140,5 +168,7 @@
   <script src="training.js"></script>
   <script src="best.js"></script>
   <script src="week.js"></script>
+  <script src="calandar.js"></script>
+
 </body>
 </html>

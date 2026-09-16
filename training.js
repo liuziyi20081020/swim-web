@@ -110,6 +110,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       updateBestRecords();
       updateWeekRecords();
+      renderCalendar();
 
     const formGoBtn = document.querySelectorAll(".form-go-btn");
     formGoBtn.forEach(function (btn) {

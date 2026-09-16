@@ -47,9 +47,11 @@ header p {
 
 .page  {
     display: none;
+    width: 100%;
     max-width: 480px;
-    margin: 28px 450px;
-    padding: 0 16px;
+    margin: 0 auto;
+    padding: 16px;
+    box-sizing: border-box;
 }
 
 .page.active{
@@ -84,30 +86,6 @@ header p {
 
 }
 
-.dark-light {
-    padding: 10px 10px;
-    background-color: var(--text);
-    color: var(--accent);
-    border: none;
-    border-radius: 999px;
-    cursor: pointer;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-}
-
-.dark-light {
-    padding: 10px 10px;
-    background-color: var(--text);
-    color: var(--accent);
-    border: none;
-    border-radius: 999px;
-    cursor: pointer;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-}
-
 .swimForm {
     width: 100%;
     max-width: 480px;
@@ -117,6 +95,12 @@ header p {
     margin: 40px;
     border-radius: 16px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+fieldset.style {
+    border: none;
+    padding: 0;
+    margin: 0;
 }
 
 .form-group {
@@ -172,7 +156,7 @@ input:focus, textarea:focus {
 }
 
 .back-btn {
-    background-color: transparent;
+    background-color: #333;
     border: 2px solid var(--accent);
     color: var(--accent);
     padding: 12px;
@@ -350,4 +334,115 @@ input:focus, textarea:focus {
   font-size: 14px;
   color: #777;
   margin: 4px 0;
+}
+
+
+.calendar-container {
+  width: 100%;
+  max-width: 500px;
+  margin: 20px auto;
+  background: var(--text);
+  padding: 20px;
+  border-radius: 16px;
+  color: var(--main);
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.calendar-header button {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: var(--main);
+  padding: 6px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.calendar-weekdays, .calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+  text-align: center;
+}
+
+.calendar-weekdays {
+  font-weight: bold;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.day {
+  min-height: 52px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+  padding: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 18px;
+}
+
+.day.has-record {
+  background: rgba(240, 233, 98, 0.315);
+  border: 1px solid var(--accent);
+  cursor: pointer;
+}
+
+.badge {
+  font-size: 10px;
+  background: var(--main);
+  color: var(--text);
+  padding: 1px 4px;
+  border-radius: 4px;
+  margin-top: 4px;
+  font-weight: bold;
+}
+
+.modal {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+.modal-content {
+  background: #333;
+  padding: 20px;
+  border-radius: 12px;
+  width: 85%; max-width: 400px;
+  position: relative;
+  color: var(--main);
+}
+.close-btn {
+  position: absolute; right: 15px; top: 10px;
+  font-size: 24px; cursor: pointer;
+}
+.modal-record-item {
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding: 8px 0;
+}
+
+@media(max-width: 768px) {
+    body {
+        font-size: 16px;
+        padding: 20px;
+    }
+
+    .back-btn {
+        position: fixed;
+        bottom: 0;
+        top: auto;
+        right: 0;
+        left: 0;
+        text-align: center;
+        justify-content: center;
+    }
+
 }

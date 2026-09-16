@@ -2,7 +2,9 @@ function updateWeekRecords() {
   const records = JSON.parse(localStorage.getItem("swimRecords")) || [];
   const weekRecordsList = document.getElementById("weekRecordsList");
 
-  if (!weekRecordsList) return;
+  if (!weekRecordsList) {
+    return;
+  }
 
   weekRecordsList.innerHTML = "";
 
