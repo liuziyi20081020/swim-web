@@ -429,6 +429,12 @@ input:focus, textarea:focus {
   padding: 8px 0;
 }
 
+.site-footer {
+    text-align: center;
+    color: #333;
+}
+
+
 @media(max-width: 768px) {
     body {
         font-size: 16px;
