@@ -18,39 +18,33 @@ function renderCalendar() {
     const firstDay = new Date(year, month, 1).getDay();
     const lastDate = new Date(year, month + 1, 0).getDate();
 
-    // 填補上個月空白
     for (let i = 0; i < firstDay; i++) {
         const emptyDiv = document.createElement("div");
         emptyDiv.className = "day empty";
         days.appendChild(emptyDiv);
     }
 
-    // 生成當月每一天
     for (let day = 1; day <= lastDate; day++) {
         const dayDiv = document.createElement("div");
         dayDiv.className = "day";
 
-        // 格式化日期字串 (YYYY-MM-DD) 比對資料
         const mStr = String(month + 1).padStart(2, "0");
         const dStr = String(day).padStart(2, "0");
         const formattedDate = `${year}-${mStr}-${dStr}`;
 
         dayDiv.innerHTML = `<span class="day-num">${day}</span>`;
 
-        // 搜尋當天是否有游泳紀錄
         const dayRecords = records.filter(function (r) {
         return r.date === formattedDate;
         });
 
         if (dayRecords.length > 0) {
         dayDiv.classList.add("has-record");
-        // 計算當天總距離標示在日曆上
         const totalDis = dayRecords.reduce(function (sum, r) {
             return sum + (Number(r.totalDis) || 0);
         }, 0);
         dayDiv.innerHTML += `<span class="badge">${totalDis}m</span>`;
 
-        // 點擊卡片跳出當天訓練明細
         dayDiv.addEventListener("click", function () {
             showDayDetail(formattedDate, dayRecords);
         });
@@ -60,7 +54,6 @@ function renderCalendar() {
     }
     }
 
-    // 顯示當天訓練明細彈窗
     function showDayDetail(dateStr, records) {
         const modal = document.getElementById("dayDetailModal");
         const modalDate = document.getElementById("modalDate");
@@ -88,11 +81,9 @@ function renderCalendar() {
         modal.style.display = "flex";
     }
 
-    // 事件綁定
     document.addEventListener("DOMContentLoaded", function () {
     renderCalendar();
 
-    // 切換上/下個月
     const prevBtn = document.getElementById("prevMonthBtn");
     const nextBtn = document.getElementById("nextMonthBtn");
     const closeModal = document.getElementById("closeModal");

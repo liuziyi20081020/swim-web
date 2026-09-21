@@ -11,7 +11,9 @@ function updateBestRecords() {
 
 
   records.forEach(function(r) {
-    const totalSec = (Number(r.durationM) || 0) * 60 + (Number(r.durationS) || 0);
+    const min = Number(r.durationM) || 0;
+    const sec = Number(r.durationS) || 0;
+    const totalSec = min * 60 + sec;
     r.totalSec = totalSec;
 
     const currentDis = Number(r.totalDis) || 0;
@@ -20,17 +22,17 @@ function updateBestRecords() {
       maxDisRecord = r;
     }
 
-    if (r.totalDis === 50) {
+    if (Number(r.totalDis) === 50) {
         if (!best50 || totalSec < best50.totalSec) {
             best50 = r;
         }
     }
-    if (r.totalDis === 100) {
+    if (Number(r.totalDis) === 100) {
         if (!best100 || totalSec < best100.totalSec) {
             best100 = r;
         }
     }
-    if (r.totalDis === 200) {
+    if (Number(r.totalDis) === 200) {
         if (!best200 || totalSec < best200.totalSec) {
             best200 = r;
         }

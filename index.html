@@ -6,7 +6,7 @@
   <title>Swim Tracker | 游泳記錄網站</title>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&amp;family=Noto+Sans:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"> -->
 </head>
 <body>
   <header>
@@ -15,8 +15,8 @@
     <nav class="nav">
       <button id="train" class="big-btn">新增訓練紀錄</button>
       <button id="bestScore" class="big-btn">查看最佳紀錄</button>
-      <button id="week" class="big-btn">查看一周紀錄</button>
-      <button id="calander" class="big-btn">查看行事曆</button>
+      <button id="week" class="big-btn">查看一週紀錄</button>
+      <button id="calendar" class="big-btn">查看行事曆</button>
     </nav>
   </header>
 
@@ -66,8 +66,8 @@
       <div id="successMsg" class="success-msg" style="display: none;">
         <p>紀錄成功! 點擊下方按鈕查看</p>
         <div class="success-acts">
-          <button id="goWeek" class="form-go-btn" data-target="week">前往一周紀錄</button>
-          <button id="goCalandar" class="form-go-btn" data-target="calandar">前往行事曆</button>
+          <button id="goWeek" class="form-go-btn" data-target="week">前往一週紀錄</button>
+          <button id="goCalendar" class="form-go-btn" data-target="calendar">前往行事曆</button>
         </div>
       </div>
     </section>
@@ -121,7 +121,7 @@
     </section>
 
 
-     <section id= "calanderPage" class="page">
+     <section id= "calendarPage" class="page">
       <button type="button" class="back-btn">回首頁</button>
 
       <div class="calendar-container">
@@ -169,7 +169,7 @@
   <script src="training.js"></script>
   <script src="best.js"></script>
   <script src="week.js"></script>
-  <script src="calandar.js"></script>
+  <script src="calendar.js"></script>
 
 </body>
 </html>

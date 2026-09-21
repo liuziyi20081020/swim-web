@@ -127,6 +127,17 @@ document.addEventListener("DOMContentLoaded", function () {
         p.classList.remove("active");
       });
 
+      if(targetId === "week" || targetId === "weekPage") {
+        if(typeof updateWeekRecords === "function") {
+          updateWeekRecords();
+        }
+      }
+
+      if(targetId === "calendar" || targetId === "calendarPage") {
+        if(typeof renderCalendar === "function") {
+          renderCalendar();
+        }
+      }
 
       const targetPage = document.querySelector("#" + targetId + "Page");
       if (targetPage) {
