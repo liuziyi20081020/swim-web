@@ -1,9 +1,12 @@
 
+// DOMContentLoaded -> 等HTML載入完才執行
 document.addEventListener("DOMContentLoaded", function () {
     const bigBtn = document.querySelectorAll(".big-btn");
     const header = document.querySelector("header");
     const backBtn = document.querySelectorAll(".back-btn");
 
+
+    // 按下四個主要按鈕時
     bigBtn.forEach(function (btn) {
         btn.addEventListener("click", function () {
 
@@ -24,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-
+    // 回首頁按鈕
     backBtn.forEach(function (backBtn) {
         backBtn.addEventListener("click", function () {
         document.querySelectorAll(".page").forEach(function (p) {
@@ -39,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-
+// 取出之前的紀錄轉回陣列
 let trainingRecords = JSON.parse(localStorage.getItem("swimRecords")) || [];
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -53,10 +56,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const breaststroke = Number(document.getElementById("breaststroke").value) || 0;
     const freestyle = Number(document.getElementById("freestyle").value) || 0;
 
- 
+  // 計算總距離
     const totalDisCalc = butterfly + backstroke + breaststroke + freestyle;
-
-
     const totalDis = document.querySelector("#totalDis");
     if (totalDis) {
       totalDis.textContent = totalDisCalc;
@@ -65,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
     return totalDisCalc;
   }
 
-
+  // 即時更新總距離
   const styleInputs = document.querySelectorAll("#butterfly, #backstroke, #breaststroke, #freestyle");
   styleInputs.forEach(function (input) {
     input.addEventListener("input", updateTotalDistance);
@@ -74,10 +75,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (swimForm) {
     swimForm.addEventListener("submit", function (e) {
-      e.preventDefault();
+      // 阻止表單預設的重新整理
+      e.preventDefault();   
 
       const currentTotal = updateTotalDistance();
 
+      // 記錄的資料
       const recordData = {
         id: Date.now(),
         date: document.getElementById("date").value,
@@ -99,10 +102,9 @@ document.addEventListener("DOMContentLoaded", function () {
         successMsg.style.display = "block";
       }
 
-
+      // 清空表單
       swimForm.reset();
-
-   
+      // 總距離歸零
       const totalDis = document.querySelector("#totalDis");
       if (totalDis) {
         totalDis.textContent = 0;
@@ -112,6 +114,8 @@ document.addEventListener("DOMContentLoaded", function () {
       updateWeekRecords();
       renderCalendar();
 
+
+    // 頁面跳轉
     const formGoBtn = document.querySelectorAll(".form-go-btn");
     formGoBtn.forEach(function (btn) {
         btn.addEventListener("click", function () {
@@ -127,6 +131,7 @@ document.addEventListener("DOMContentLoaded", function () {
         p.classList.remove("active");
       });
 
+      // 刷新資料
       if(targetId === "week" || targetId === "weekPage") {
         if(typeof updateWeekRecords === "function") {
           updateWeekRecords();
