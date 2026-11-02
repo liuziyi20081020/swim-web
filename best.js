@@ -13,15 +13,18 @@ function updateBestRecords() {
   records.forEach(function(r) {
     const min = Number(r.durationM) || 0;
     const sec = Number(r.durationS) || 0;
+    // 分 + 秒換成總秒數
     const totalSec = min * 60 + sec;
     r.totalSec = totalSec;
 
+    // 最新紀錄的距離大於最遠距離就更新
     const currentDis = Number(r.totalDis) || 0;
     const maxDis = Number(maxDisRecord.totalDis) || 0;
     if (currentDis > maxDis) {
       maxDisRecord = r;
     }
 
+    // 50/100/200m 最佳紀錄
     if (Number(r.totalDis) === 50) {
         if (!best50 || totalSec < best50.totalSec) {
             best50 = r;
@@ -39,6 +42,7 @@ function updateBestRecords() {
     }
   });
 
+    // 顯示最遠距離和日期
     if (maxDisRecord) {
         const bestDis = document.getElementById("bestDis");
         const bestDisDate = document.getElementById("bestDisDate");
@@ -51,7 +55,7 @@ function updateBestRecords() {
         }
     }
 
-
+    // 先判斷元素是否存在best50 再在畫面上寫入
     if (best50) {
         const best50Time = document.getElementById("best50Time");
         const best50Date = document.getElementById("best50Date");
